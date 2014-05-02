@@ -213,10 +213,11 @@ namespace drbg
 		}
 
 		size_t num_of_threads;
+		size_t num_of_procs = static_cast<size_t>(omp_get_num_procs());
 		if(requested_num_of_threads == 0)
-			num_of_threads = min(max_num_of_threads, omp_get_num_procs());
+			num_of_threads = min(max_num_of_threads, num_of_procs);
 		else
-			num_of_threads = min(min(max_num_of_threads, omp_get_num_procs()), requested_num_of_threads);
+			num_of_threads = min(min(max_num_of_threads, num_of_procs), requested_num_of_threads);
 		omp_set_num_threads(static_cast<int>(num_of_threads));
 		
 		while(reseed_counter == reseed_interval || s == biglong::one)
