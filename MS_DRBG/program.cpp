@@ -1,4 +1,4 @@
-#include "ms_class.h"
+#include "msdrbg.h"
 #include <fstream>
 
 using namespace drbg;

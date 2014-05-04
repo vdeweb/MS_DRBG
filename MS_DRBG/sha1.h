@@ -1,5 +1,5 @@
-#ifndef SHA1_DEFINED
-#define SHA1_DEFINED
+#ifndef SHA1
+#define SHA1
 
 namespace drbg
 {
@@ -161,4 +161,4 @@ namespace drbg
 		return 20;
 	}
 }
-#endif 
+#endif

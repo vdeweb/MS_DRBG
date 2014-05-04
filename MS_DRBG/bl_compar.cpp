@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline bool biglong::operator==(const biglong& right_op) const
+	bool biglong::operator==(const biglong& right_op) const
 	{
 		if (value.size() != right_op.value.size())
 			return false;
@@ -12,7 +12,7 @@ namespace blong
 		return true;
 	}
 
-	inline bool biglong::operator!=(const biglong& right_op) const
+	bool biglong::operator!=(const biglong& right_op) const
 	{
 		if (value.size() != right_op.value.size())
 			return true;
@@ -22,7 +22,7 @@ namespace blong
 		return false;
 	}
 
-	inline bool biglong::operator<(const biglong& right_op) const
+	bool biglong::operator<(const biglong& right_op) const
 	{
 		if (value.size() > right_op.value.size())
 			return false;
@@ -39,7 +39,7 @@ namespace blong
 		return false;
 	}
 
-	inline bool biglong::operator<=(const biglong& right_op) const
+	bool biglong::operator<=(const biglong& right_op) const
 	{
 		if (value.size() > right_op.value.size())
 			return false;
@@ -56,7 +56,7 @@ namespace blong
 		return true;
 	}
 
-	inline bool biglong::operator>(const biglong& right_op) const
+	bool biglong::operator>(const biglong& right_op) const
 	{
 		if (value.size() > right_op.value.size())
 			return true;
@@ -73,7 +73,7 @@ namespace blong
 		return false;
 	}
 
-	inline bool biglong::operator>=(const biglong& right_op) const
+	bool biglong::operator>=(const biglong& right_op) const
 	{
 		if (value.size() > right_op.value.size())
 			return true;

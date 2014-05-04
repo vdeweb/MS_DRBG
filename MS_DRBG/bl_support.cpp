@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline void biglong::normalize()
+	void biglong::normalize()
 	{
 		UNSIGINT quot_prev = 0;
 		for (size_t i = 0; i < value.size(); ++i)
@@ -29,7 +29,7 @@ namespace blong
 		}
 	}
 
-	inline void biglong::remove_leading_zeros()
+	void biglong::remove_leading_zeros()
 	{
 		for (SIGINT i = value.size() - 1; i > 0; --i)
 		{
@@ -38,7 +38,7 @@ namespace blong
 		}
 	}
 
-	inline void biglong::from_string(const std::string& hex_string)
+	void biglong::from_string(const std::string& hex_string)
 	{
 		if(hex_string.empty()) throw;
 
@@ -54,7 +54,7 @@ namespace blong
 		remove_leading_zeros();
 	}
 
-	inline std::string biglong::to_string() const
+	std::string biglong::to_string() const
 	{
 		std::stringstream strstream;
 		strstream << std::hex << value.back();
@@ -63,12 +63,12 @@ namespace blong
 		return strstream.str();
 	}
 
-	inline bool biglong::isOdd() const
+	bool biglong::isOdd() const
 	{
 		return value[0]&1;
 	}
 
-	inline size_t biglong::get_raw_bytes(unsigned char*& raw_bytes) const
+	size_t biglong::get_raw_bytes(unsigned char*& raw_bytes) const
 	{
 		size_t digit_size = sizeof(SHORT_UNSIGINT);
 		raw_bytes = new unsigned char[digit_size*value.size()];
@@ -82,7 +82,7 @@ namespace blong
 		return digit_size*value.size();
 	}
 
-	inline size_t biglong::get_raw_bytes(unsigned char*& raw_bytes,
+	size_t biglong::get_raw_bytes(unsigned char*& raw_bytes,
 	                                           const size_t min_length) const
 	{
 		size_t digit_size = sizeof(SHORT_UNSIGINT);

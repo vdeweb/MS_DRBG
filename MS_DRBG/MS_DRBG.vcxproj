@@ -138,21 +138,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="biglong.h" />
-    <ClInclude Include="bl_add.h" />
-    <ClInclude Include="bl_compar.h" />
-    <ClInclude Include="bl_construct.h" />
-    <ClInclude Include="bl_div.h" />
-    <ClInclude Include="bl_io.h" />
-    <ClInclude Include="bl_mult.h" />
-    <ClInclude Include="bl_static.h" />
-    <ClInclude Include="bl_subtr.h" />
-    <ClInclude Include="bl_support.h" />
-    <ClInclude Include="ms_class.h" />
-    <ClInclude Include="ms_members.h" />
-    <ClInclude Include="ms_static.h" />
+    <ClInclude Include="msdrbg.h" />
     <ClInclude Include="sha1.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bl_add.cpp" />
+    <ClCompile Include="bl_compar.cpp" />
+    <ClCompile Include="bl_construct.cpp" />
+    <ClCompile Include="bl_div.cpp" />
+    <ClCompile Include="bl_io.cpp" />
+    <ClCompile Include="bl_mult.cpp" />
+    <ClCompile Include="bl_static.cpp" />
+    <ClCompile Include="bl_subtr.cpp" />
+    <ClCompile Include="bl_support.cpp" />
+    <ClCompile Include="ms_members.cpp" />
+    <ClCompile Include="ms_static.cpp" />
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

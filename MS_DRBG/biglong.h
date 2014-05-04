@@ -88,14 +88,4 @@ namespace blong
 		std::vector<UNSIGINT> value;
 	};
 }
-
-#include "bl_add.h"
-#include "bl_compar.h"
-#include "bl_construct.h"
-#include "bl_div.h"
-#include "bl_io.h"
-#include "bl_mult.h"
-#include "bl_subtr.h"
-#include "bl_static.h"
-#include "bl_support.h"
 #endif

@@ -110,7 +110,4 @@ namespace drbg
 		bool is_instantiated() const;
 	};
 }
-
-#include "ms_static.h"
-#include "ms_members.h"
 #endif

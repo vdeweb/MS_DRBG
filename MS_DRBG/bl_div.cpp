@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline biglong biglong::div(const biglong& right_op, biglong& quot) const
+	biglong biglong::div(const biglong& right_op, biglong& quot) const
 	{
 		if(right_op.value.back() == 0)
 			throw;

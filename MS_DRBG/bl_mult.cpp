@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline biglong biglong::operator*(const biglong& right_op) const
+	biglong biglong::operator*(const biglong& right_op) const
 	{
 		biglong result;
 		result.value.resize(value.size()+right_op.value.size(),0);
@@ -67,7 +67,7 @@ namespace blong
 		return result;
 	}
 
-	inline biglong biglong::operator*(SHORT_UNSIGINT right_op) const
+	biglong biglong::operator*(SHORT_UNSIGINT right_op) const
 	{
 		biglong result;
 		result.value.resize(value.size(),0);	
@@ -127,13 +127,13 @@ namespace blong
 		return result;
 	}
 
-	inline biglong biglong::operator*(UNSIGINT right_op) const
+	biglong biglong::operator*(UNSIGINT right_op) const
 	{
 		biglong right_long = right_op;
 		return (*this)*right_long;
 	}
 
-	inline biglong biglong::power_mod(const biglong& power, const biglong& modulo) const
+	biglong biglong::power_mod(const biglong& power, const biglong& modulo) const
 	{
 		if(power == one)
 			return *this;

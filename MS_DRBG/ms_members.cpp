@@ -1,26 +1,27 @@
 #include <omp.h>
+#include "msdrbg.h"
 
 namespace drbg
 {
 	const size_t ms_drbg::reseed_interval = 50000;
 
-	inline ms_drbg::ms_drbg()
+	ms_drbg::ms_drbg()
 	{
 		last_error = "";
 		instantiated = false;
 	}
 
-	inline string ms_drbg::get_last_error() const
+	string ms_drbg::get_last_error() const
 	{
 		return last_error;
 	}
 
-	inline bool ms_drbg::is_instantiated() const
+	bool ms_drbg::is_instantiated() const
 	{
 		return instantiated;
 	}
 
-	inline bool ms_drbg::instantiate(const size_t requested_strength,
+	bool ms_drbg::instantiate(const size_t requested_strength,
 	                                 const size_t requested_e,
 	                                 const size_t requested_k,
 	                                 const string& personalization_string)
@@ -112,7 +113,7 @@ namespace drbg
 		return 1;
 	}	
 
-	inline bool ms_drbg::generate(const size_t requested_strength,
+	bool ms_drbg::generate(const size_t requested_strength,
 	                              const size_t requested_num_of_bytes, string& hex_string)
 	{
 		unsigned char* buffer = nullptr;
@@ -131,7 +132,7 @@ namespace drbg
 		return 1;
 	}
 
-	inline bool ms_drbg::generate(const size_t requested_strength,
+	bool ms_drbg::generate(const size_t requested_strength,
 		              const size_t requested_num_of_bytes, unsigned char*& buffer)
 	{
 		if(!instantiated)
@@ -172,7 +173,7 @@ namespace drbg
 		return 1;
 	}
 
-	inline bool ms_drbg::generate_parallel(const size_t requested_strength,
+	bool ms_drbg::generate_parallel(const size_t requested_strength,
 	                                       const size_t requested_num_of_bytes, string& hex_string,
 	                                       const size_t requested_num_of_threads)
 	{
@@ -193,7 +194,7 @@ namespace drbg
 		return 1;
 	}
 
-	inline bool ms_drbg::generate_parallel(const size_t requested_strength,
+	bool ms_drbg::generate_parallel(const size_t requested_strength,
 	                                       const size_t requested_num_of_bytes, unsigned char*& buffer,
 	                                       const size_t requested_num_of_threads)
 	{

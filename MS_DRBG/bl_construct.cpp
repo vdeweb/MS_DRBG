@@ -6,17 +6,17 @@ namespace blong
 	const biglong biglong::one = 1;
 	const biglong biglong::two = 2;
 
-	inline biglong::biglong()
+	biglong::biglong()
 	{
 		value.push_back(0);
 	}
 
-	inline biglong::biglong(const std::string& hex_string)
+	biglong::biglong(const std::string& hex_string)
 	{
 		from_string(hex_string);
 	}
 
-	inline biglong::biglong(UNSIGINT l)
+	biglong::biglong(UNSIGINT l)
 	{
 		do
 		{
@@ -25,12 +25,12 @@ namespace blong
 		} while (l > 0);
 	}
 
-	inline biglong::biglong(const biglong& bl)
+	biglong::biglong(const biglong& bl)
 	{
 		value = bl.value;
 	}
 
-	inline biglong::biglong(const unsigned char* raw_bytes, const size_t length)
+	biglong::biglong(const unsigned char* raw_bytes, const size_t length)
 	{
 		size_t digit_size = sizeof(SHORT_UNSIGINT);
 
@@ -52,13 +52,13 @@ namespace blong
 				static_cast<size_t>(raw_bytes[(vector_len-1)*digit_size+j]) << (8*j);	
 	}
 
-	inline const biglong& biglong::operator=(const std::string& s)
+	const biglong& biglong::operator=(const std::string& s)
 	{
 		from_string(s);
 		return *this;
 	}
 
-	inline const biglong& biglong::operator=(UNSIGINT l)
+	const biglong& biglong::operator=(UNSIGINT l)
 	{
 		value.clear();
 		do

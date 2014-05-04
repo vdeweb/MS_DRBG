@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline biglong biglong::get_random(const biglong& max)
+	biglong biglong::get_random(const biglong& max)
 	{
 		std::stringstream strstream;
 		strstream << std::hex;
@@ -17,7 +17,7 @@ namespace blong
 		return random;
 	}
 
-	inline biglong biglong::gcd(const biglong& a, const biglong& b)
+	biglong biglong::gcd(const biglong& a, const biglong& b)
 	{
 		if(a==zero)
 			return b;

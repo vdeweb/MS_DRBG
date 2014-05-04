@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	inline std::istream& operator>>(std::istream &stream, biglong &n)
+	std::istream& operator>>(std::istream &stream, biglong &n)
 	{
 		std::string str;
 		stream >> str;
@@ -10,7 +10,7 @@ namespace blong
 		return stream;
 	}
 
-	inline std::ostream& operator<<(std::ostream &stream, const biglong &n)
+	std::ostream& operator<<(std::ostream &stream, const biglong &n)
 	{
 		stream << std::hex << n.value.back();
 		for (SIGINT i = n.value.size() - 2; i >= 0; --i)

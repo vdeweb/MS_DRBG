@@ -3,7 +3,7 @@
 namespace blong
 {
 	//truncated subtraction
-	inline biglong biglong::trunc_sub(const biglong& right_op) const
+	biglong biglong::trunc_sub(const biglong& right_op) const
 	{
 		if(*this <= right_op)
 			return biglong(0);

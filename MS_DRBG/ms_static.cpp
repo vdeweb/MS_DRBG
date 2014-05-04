@@ -2,10 +2,11 @@
 #pragma comment(lib, "advapi32.lib")
 
 #include "sha1.h"
+#include "msdrbg.h"
 
 namespace drbg
 {
-	inline unsigned char* ms_drbg::get_raw_bytes(const size_t value)
+	unsigned char* ms_drbg::get_raw_bytes(const size_t value)
 	{
 		size_t size = sizeof(value);
 		unsigned char* raw_bytes = new unsigned char[size];
@@ -16,7 +17,7 @@ namespace drbg
 		return raw_bytes;
 	}
 
-	inline unsigned char* ms_drbg::get_entropy(const size_t length)
+	unsigned char* ms_drbg::get_entropy(const size_t length)
 	{
 		HCRYPTPROV hProvider = NULL;
 
@@ -31,7 +32,7 @@ namespace drbg
 		return entropy_input;
 	}
 
-	inline unsigned char* ms_drbg::concatenate(const void* left, const size_t left_size,
+	unsigned char* ms_drbg::concatenate(const void* left, const size_t left_size,
 	                                           const void* right, const size_t right_size)
 	{
 		unsigned char* result = new unsigned char[left_size+right_size];
@@ -40,7 +41,7 @@ namespace drbg
 		return result;
 	}
 
-	inline string ms_drbg::hash_df_hex(const unsigned char* seed_material,
+	string ms_drbg::hash_df_hex(const unsigned char* seed_material,
 	                                   const size_t seed_material_size,
 									   const size_t seedlen)
 	{
@@ -77,7 +78,7 @@ namespace drbg
 		return result.substr(0,2*seedlen);
 	}
 
-	inline void ms_drbg::reseed(biglong& intenal_state, const size_t byte_len, const string& additional_input_string)
+	void ms_drbg::reseed(biglong& intenal_state, const size_t byte_len, const string& additional_input_string)
 	{
 		unsigned char* entropy_input = get_entropy(byte_len);
 		unsigned char* internal_bytes = nullptr;
