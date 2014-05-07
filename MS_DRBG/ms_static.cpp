@@ -6,7 +6,7 @@
 
 namespace drbg
 {
-	unsigned char* ms_drbg::get_raw_bytes(const size_t value)
+	unsigned char* MsDrbg::get_raw_bytes(const size_t value)
 	{
 		size_t size = sizeof(value);
 		unsigned char* raw_bytes = new unsigned char[size];
@@ -17,7 +17,7 @@ namespace drbg
 		return raw_bytes;
 	}
 
-	unsigned char* ms_drbg::get_entropy(const size_t length)
+	unsigned char* MsDrbg::get_entropy(const size_t length)
 	{
 		HCRYPTPROV hProvider = NULL;
 
@@ -32,7 +32,7 @@ namespace drbg
 		return entropy_input;
 	}
 
-	unsigned char* ms_drbg::concatenate(const void* left, const size_t left_size,
+	unsigned char* MsDrbg::concatenate(const void* left, const size_t left_size,
 	                                           const void* right, const size_t right_size)
 	{
 		unsigned char* result = new unsigned char[left_size+right_size];
@@ -41,7 +41,7 @@ namespace drbg
 		return result;
 	}
 
-	string ms_drbg::hash_df_hex(const unsigned char* seed_material,
+	string MsDrbg::hash_df_hex(const unsigned char* seed_material,
 	                                   const size_t seed_material_size,
 									   const size_t seedlen)
 	{
@@ -68,8 +68,8 @@ namespace drbg
 			size_t hash_material_size = counter_seedlen_size + seed_material_size;
 			delete[] counter_seedlen_bytes;
 
-			sha1::calc(hash_material, static_cast<int>(hash_material_size), hash);
-			sha1::to_hex_string(hash, hexstring);
+			Sha1::calc(hash_material, static_cast<int>(hash_material_size), hash);
+			Sha1::to_hex_string(hash, hexstring);
 			result += string(hexstring);
 
 			delete[] hash_material;
@@ -78,7 +78,7 @@ namespace drbg
 		return result.substr(0,2*seedlen);
 	}
 
-	void ms_drbg::reseed(biglong& intenal_state, const size_t byte_len, const string& additional_input_string)
+	void MsDrbg::reseed(biglong& intenal_state, const size_t byte_len, const string& additional_input_string)
 	{
 		unsigned char* entropy_input = get_entropy(byte_len);
 		unsigned char* internal_bytes = nullptr;

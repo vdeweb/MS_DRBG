@@ -3,25 +3,25 @@
 
 namespace drbg
 {
-	const size_t ms_drbg::reseed_interval = 50000;
+	const size_t MsDrbg::reseed_interval = 50000;
 
-	ms_drbg::ms_drbg()
+	MsDrbg::MsDrbg()
 	{
 		last_error = "";
 		instantiated = false;
 	}
 
-	string ms_drbg::get_last_error() const
+	string MsDrbg::get_last_error() const
 	{
 		return last_error;
 	}
 
-	bool ms_drbg::is_instantiated() const
+	bool MsDrbg::is_instantiated() const
 	{
 		return instantiated;
 	}
 
-	bool ms_drbg::instantiate(const size_t requested_strength,
+	bool MsDrbg::instantiate(const size_t requested_strength,
 	                                 const size_t requested_e,
 	                                 const size_t requested_k,
 	                                 const string& personalization_string)
@@ -113,7 +113,7 @@ namespace drbg
 		return 1;
 	}	
 
-	bool ms_drbg::generate(const size_t requested_strength,
+	bool MsDrbg::generate(const size_t requested_strength,
 	                              const size_t requested_num_of_bytes, string& hex_string)
 	{
 		unsigned char* buffer = nullptr;
@@ -132,7 +132,7 @@ namespace drbg
 		return 1;
 	}
 
-	bool ms_drbg::generate(const size_t requested_strength,
+	bool MsDrbg::generate(const size_t requested_strength,
 		              const size_t requested_num_of_bytes, unsigned char*& buffer)
 	{
 		if(!instantiated)
@@ -173,7 +173,7 @@ namespace drbg
 		return 1;
 	}
 
-	bool ms_drbg::generate_parallel(const size_t requested_strength,
+	bool MsDrbg::generate_parallel(const size_t requested_strength,
 	                                       const size_t requested_num_of_bytes, string& hex_string,
 	                                       const size_t requested_num_of_threads)
 	{
@@ -194,7 +194,7 @@ namespace drbg
 		return 1;
 	}
 
-	bool ms_drbg::generate_parallel(const size_t requested_strength,
+	bool MsDrbg::generate_parallel(const size_t requested_strength,
 	                                       const size_t requested_num_of_bytes, unsigned char*& buffer,
 	                                       const size_t requested_num_of_threads)
 	{

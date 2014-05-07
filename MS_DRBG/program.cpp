@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	ms_drbg gen;
+	MsDrbg gen;
 	gen.instantiate(112, 7, 0, "Micali-Schnorr DRBG Personalization String");
 
 	size_t random_size = 100000000;

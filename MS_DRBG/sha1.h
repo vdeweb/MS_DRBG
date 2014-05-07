@@ -3,7 +3,7 @@
 
 namespace drbg
 {
-	class sha1
+	class Sha1
 	{
 	public :
 		static void calc(const void* src, const int bytelength, unsigned char* hash);
@@ -18,14 +18,14 @@ namespace drbg
 
     
 	// Rotate an integer value to left.
-	inline const unsigned int sha1::rol(const unsigned int value, const unsigned int steps)
+	inline const unsigned int Sha1::rol(const unsigned int value, const unsigned int steps)
 	{
 		return ((value << steps) | (value >> (32 - steps)));
 	}
 
 	// Sets the first 16 integers in the buffer to zero.
 	// Used for clearing the W buffer.
-	inline void sha1::clear_buffer(unsigned int* buffer)
+	inline void Sha1::clear_buffer(unsigned int* buffer)
 	{
 		for (int pos = 16; --pos >= 0;)
 		{
@@ -33,7 +33,7 @@ namespace drbg
 		}
 	}
 
-	inline void sha1::inner_hash(unsigned int* result, unsigned int* w)
+	inline void Sha1::inner_hash(unsigned int* result, unsigned int* w)
 	{
 		unsigned int a = result[0];
 		unsigned int b = result[1];
@@ -93,7 +93,7 @@ namespace drbg
 	}
 
 
-	inline void sha1::calc(const void* src, const int bytelength, unsigned char* hash)
+	inline void Sha1::calc(const void* src, const int bytelength, unsigned char* hash)
 	{
 		unsigned int result[5] = { 0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0 };
 
@@ -144,7 +144,7 @@ namespace drbg
 		}
 	}
 
-	inline void sha1::to_hex_string(const unsigned char* hash, char* hexstring)
+	inline void Sha1::to_hex_string(const unsigned char* hash, char* hexstring)
 	{
 		const char hexDigits[] = { "0123456789abcdef" };
 
@@ -156,7 +156,7 @@ namespace drbg
 		hexstring[40] = 0;
 	}
 
-	inline unsigned int sha1::hash_len_in_bytes()
+	inline unsigned int Sha1::hash_len_in_bytes()
 	{
 		return 20;
 	}

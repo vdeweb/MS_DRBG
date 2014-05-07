@@ -47,7 +47,7 @@ namespace drbg
 		"daa600f32577030e95b73dd996b65f984740a485e27138bd" +
 		"d5f0252209bcf0056640a1b3b1dd97ad7c187e0401ba817d";
 
-	class ms_drbg
+	class MsDrbg
 	{
 		static const size_t MAX_SECURITY_STRENGTH = 128;
 
@@ -86,7 +86,7 @@ namespace drbg
 		                                  const void* right, const size_t right_size);
 
 	public :
-		ms_drbg();
+		MsDrbg();
 
 		bool instantiate(const size_t requested_strength, const size_t requested_e,
 		                 const size_t requested_k, const string& personalization_string);
