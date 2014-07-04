@@ -19,18 +19,18 @@ namespace blong
 	typedef unsigned long long UNSIGINT;
 	typedef long long SIGINT;
 	typedef unsigned int SHORT_UNSIGINT;
-	static const UNSIGINT BASE = 4294967296ULL; // 2^32
-	static const UNSIGINT REM_MASK = 4294967295ULL;
-	static const UNSIGINT BASE_POWER = 32;
-	static const UNSIGINT HEX_DIGITS = 8;
+	const UNSIGINT BASE = 4294967296ULL; // 2^32
+	const UNSIGINT REM_MASK = 4294967295ULL;
+	const UNSIGINT BASE_POWER = 32;
+	const UNSIGINT HEX_DIGITS = 8;
 #elif _M_IX86
 	typedef unsigned int UNSIGINT;
 	typedef int SIGINT;
 	typedef unsigned short SHORT_UNSIGINT;
-	static const UNSIGINT BASE = 65536; // 2^16
-	static const UNSIGINT REM_MASK = 65535;
-	static const UNSIGINT BASE_POWER = 16;
-	static const UNSIGINT HEX_DIGITS = 4;
+	const UNSIGINT BASE = 65536; // 2^16
+	const UNSIGINT REM_MASK = 65535;
+	const UNSIGINT BASE_POWER = 16;
+	const UNSIGINT HEX_DIGITS = 4;
 #endif
 
 	class biglong
