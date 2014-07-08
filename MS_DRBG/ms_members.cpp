@@ -3,8 +3,6 @@
 
 namespace drbg
 {
-	const size_t MsDrbg::reseed_interval = 50000;
-
 	MsDrbg::MsDrbg()
 	{
 		last_error = "";

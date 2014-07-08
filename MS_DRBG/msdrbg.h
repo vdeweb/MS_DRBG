@@ -1,14 +1,14 @@
+#include "biglong.h"
+
 #ifndef MSDRBG
 #define MSDRBG
 
-#include "biglong.h"
-
-using namespace blong;
-using namespace std;
-
 namespace drbg
 {
-	static const string N_1024 =
+	using namespace blong;
+	using namespace std;
+
+	const string N_1024 =
 		string("b66fbfdafbac2fd82eb13dc44fa170ffc9f7c7b51d55b214") +
 		"4cc2257b29df3f62b421b1580753f304a671ff8b55dd8abf" +
 		"b53d31aba0ad742f21857acf814af3f1e126d771a61eca54" +
@@ -16,7 +16,7 @@ namespace drbg
 		"d0355aa155d4d9126140dcfab9b03f62a5032d06536d8574" +
 		"0988f38427f35885";
 
-	static const string N_2048 =
+	const string N_2048 =
 		string("c11a01f25daf396aa927157baf6f504f78cba32457b58c6b") +
 		"f7d851af42385cc7905b06f41f6d47ab1b3a2c1217d14d15" +
 		"070c9da524734ada2fe17a95e600ae9a4f8b1a6696661e40" +
@@ -29,7 +29,7 @@ namespace drbg
 		"2b4091f663690d033b486d74371a20fc3e214bce7ed0e797" +
 		"5ea44453cd161d32e818520459896571";
 
-	static const string N_3072 =
+	const string N_3072 =
 		string("c6046ba68beaa061c468a9a74da34d6421398c73020837c7") +
 		"d2a4042bdd9a7628cab8022e5bc4246f75da8d2603da8021" +
 		"41c5d112835e6bdb57ed799e28d6fa49c3d0f5b5f9776c14" +
@@ -50,6 +50,7 @@ namespace drbg
 	class MsDrbg
 	{
 		static const size_t MAX_SECURITY_STRENGTH = 128;
+		static const size_t reseed_interval = 50000;
 
 		biglong e;
 		biglong N;
@@ -64,9 +65,7 @@ namespace drbg
 		size_t reseed_counter;
 
 		size_t security_strength;
-		size_t max_num_of_threads;
-		
-		static const size_t reseed_interval;
+		size_t max_num_of_threads;		
 
 		string last_error;
 		bool instantiated;

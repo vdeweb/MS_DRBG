@@ -1,6 +1,3 @@
-#ifndef BIGLONG
-#define BIGLONG
-
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -12,6 +9,9 @@
 #include <stdlib.h>
 #include <ctime>
 #include <string>
+
+#ifndef BIGLONG
+#define BIGLONG
 
 namespace blong
 {

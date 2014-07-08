@@ -11,14 +11,14 @@ namespace drbg
 		static unsigned int hash_len_in_bytes();
 
 	private :
-		static const unsigned int rol(const unsigned int value, const unsigned int steps);
+		static unsigned int rol(const unsigned int value, const unsigned int steps);
 		static void clear_buffer(unsigned int* buffer);
 		static void inner_hash(unsigned int* result, unsigned int* w);
 	};
 
     
 	// Rotate an integer value to left.
-	inline const unsigned int Sha1::rol(const unsigned int value, const unsigned int steps)
+	inline unsigned int Sha1::rol(const unsigned int value, const unsigned int steps)
 	{
 		return ((value << steps) | (value >> (32 - steps)));
 	}
