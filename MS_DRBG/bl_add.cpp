@@ -2,7 +2,7 @@
 
 namespace blong
 {
-	const biglong& biglong::operator++()
+	biglong& biglong::operator++()
 	{
 		++value[0];
 		for(size_t i=0; value[i]>=BASE && i < value.size(); ++i)
@@ -47,11 +47,11 @@ namespace blong
 
 	biglong biglong::operator+(UNSIGINT right_op) const
 	{
-		biglong right_long = right_op;
+		biglong right_long = biglong(right_op);
 		return (*this)+right_long;
 	}
 
-	const biglong& biglong::operator+=(const biglong& right_op)
+	biglong& biglong::operator+=(const biglong& right_op)
 	{
 		size_t max_size = value.size() > right_op.value.size() ? value.size() : right_op.value.size();
 		value.resize(max_size, 0);

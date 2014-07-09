@@ -1,4 +1,5 @@
 #include <omp.h>
+#include <sstream>
 #include "msdrbg.h"
 
 namespace drbg
@@ -75,13 +76,13 @@ namespace drbg
 
 		if(requested_k == 0)
 		{
-			k = min(n-2*security_strength, (size_t)floor(n*(1-2/(double)exp)));
+			k = min(n-2*security_strength, static_cast<size_t>(floor(n*(1-2/static_cast<double>(exp)))));
 			k_byte = k/8;
 			k = k_byte*8;
 		}
 		else
 		{
-			if(requested_k > min(n-2*security_strength, (size_t)floor(n*(1-2/(double)exp)))
+			if(requested_k > min(n-2*security_strength, static_cast<size_t>(floor(n*(1-2/static_cast<double>(exp)))))
 				|| requested_k%8 != 0)
 			{
 				last_error = "Invalid requested_k";
@@ -154,10 +155,10 @@ namespace drbg
 				reseed(s, r_byte, "");
 				reseed_counter = 0;
 			}
-
+						
+			biglong s_power_mod = s.power_mod(e, N);
 			unsigned char* s_power_mod_bytes = nullptr;
-			size_t s_power_mod_size = (s.power_mod(e, N))
-				.get_raw_bytes(s_power_mod_bytes, n_byte);
+			s_power_mod.get_raw_bytes(s_power_mod_bytes, n_byte);
 						
 			memcpy(buffer+i*k_byte, s_power_mod_bytes, k_byte);
 			s = biglong(s_power_mod_bytes+k_byte, r_byte);
@@ -254,9 +255,9 @@ namespace drbg
 					thread_reseed_counter = 0;
 				}
 
+				biglong thread_s_power_mod = thread_s.power_mod(e, N);
 				unsigned char* thread_s_power_mod_bytes = nullptr;
-				size_t thread_s_power_mod_size = (thread_s.power_mod(e, N))
-					.get_raw_bytes(thread_s_power_mod_bytes, n_byte);
+				thread_s_power_mod.get_raw_bytes(thread_s_power_mod_bytes, n_byte);
 
 				memcpy(buffer_w_thread_offset+i*k_byte, thread_s_power_mod_bytes, k_byte);
 				thread_s = biglong(thread_s_power_mod_bytes+k_byte, r_byte);

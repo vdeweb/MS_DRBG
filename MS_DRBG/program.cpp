@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	MsDrbg gen;
 	gen.instantiate(112, 7, 0, "Micali-Schnorr DRBG Personalization String");
 
-	size_t random_size = 100000000;
+	size_t random_size = 1000000;
 	unsigned char* random = nullptr;
 	gen.generate_parallel(112, random_size, random, 3);
 		

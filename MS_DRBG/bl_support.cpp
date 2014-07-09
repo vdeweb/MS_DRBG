@@ -1,3 +1,5 @@
+#include <iomanip>
+#include <sstream>
 #include "biglong.h"
 
 namespace blong

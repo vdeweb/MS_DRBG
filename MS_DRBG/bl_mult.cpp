@@ -1,3 +1,4 @@
+#include <bitset>
 #include "biglong.h"
 
 namespace blong
@@ -129,7 +130,7 @@ namespace blong
 
 	biglong biglong::operator*(UNSIGINT right_op) const
 	{
-		biglong right_long = right_op;
+		biglong right_long = biglong(right_op);
 		return (*this)*right_long;
 	}
 
@@ -140,9 +141,9 @@ namespace blong
 		if(power == zero)
 			return one;
 
-		biglong result = 1;
+		biglong result = one;
 		biglong squared = *this;
-		biglong quot = 0;
+		biglong quot = zero;
 		for(size_t i=0; i<power.value.size(); ++i)
 		{
 			std::bitset<BASE_POWER> bin_power(static_cast<unsigned long long>(power.value[i]));

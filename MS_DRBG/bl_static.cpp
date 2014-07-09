@@ -1,3 +1,4 @@
+#include <sstream>
 #include "biglong.h"
 
 namespace blong
@@ -24,12 +25,12 @@ namespace blong
 		if(b==zero)
 			return a;
 
-		biglong q = 0;
+		biglong q = zero;
 		biglong r0 = a;
 		biglong r1 = b;
 		biglong r2 = r0.div(r1,q);
 
-		while(r2>0)
+		while(r2 > zero)
 		{
 			r0 = r1;
 			r1 = r2;

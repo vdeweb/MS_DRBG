@@ -1,13 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
-#include <iomanip>
-#include <bitset>
-
-#include <limits.h>
-#include <cstdlib>
-#include <stdlib.h>
-#include <ctime>
 #include <string>
 
 #ifndef BIGLONG
@@ -44,13 +36,13 @@ namespace blong
 		static const biglong two;
 
 		biglong();
-		biglong(const std::string& hex_string);
-		biglong(UNSIGINT l);
+		explicit biglong(const std::string& hex_string);
+		explicit biglong(UNSIGINT l);
 		biglong(const biglong& bl);
 		biglong(const unsigned char* raw_bytes, const size_t length);
 
-		const biglong& operator=(const std::string& s);
-		const biglong& operator=(UNSIGINT l);
+		biglong& operator=(const std::string& hex_string);
+		biglong& operator=(UNSIGINT l);
 
 		bool operator==(const biglong& right_op) const;
 		bool operator!=(const biglong& right_op) const;
@@ -59,10 +51,11 @@ namespace blong
 		bool operator>(const biglong& right_op) const;
 		bool operator>=(const biglong& right_op) const;
 
-		const biglong& operator++();
+		biglong& operator++();
+		biglong& operator+=(const biglong& right_op);
+
 		biglong operator+(const biglong& right_op) const;
-		biglong operator+(UNSIGINT right_op) const;
-		const biglong& operator+=(const biglong& right_op);
+		biglong operator+(UNSIGINT right_op) const;		
 		biglong operator*(const biglong& right_op) const;
 		biglong operator*(SHORT_UNSIGINT right_op) const;
 		biglong operator*(UNSIGINT right_op) const;
@@ -76,8 +69,7 @@ namespace blong
 
 		std::string to_string() const;
 		size_t get_raw_bytes(unsigned char*& raw_bytes) const;
-		size_t get_raw_bytes(unsigned char*& raw_bytes,
-		                           const size_t min_length) const;
+		size_t get_raw_bytes(unsigned char*& raw_bytes, const size_t min_length) const;
 		bool isOdd() const;
 
 		private:    

@@ -2,9 +2,9 @@
 
 namespace blong
 {
-	const biglong biglong::zero = 0;
-	const biglong biglong::one = 1;
-	const biglong biglong::two = 2;
+	const biglong biglong::zero = biglong(0);
+	const biglong biglong::one = biglong(1);
+	const biglong biglong::two = biglong(2);
 
 	biglong::biglong()
 	{
@@ -52,13 +52,13 @@ namespace blong
 				static_cast<size_t>(raw_bytes[(vector_len-1)*digit_size+j]) << (8*j);	
 	}
 
-	const biglong& biglong::operator=(const std::string& s)
+	biglong& biglong::operator=(const std::string& hex_string)
 	{
-		from_string(s);
+		from_string(hex_string);
 		return *this;
 	}
 
-	const biglong& biglong::operator=(UNSIGINT l)
+	biglong& biglong::operator=(UNSIGINT l)
 	{
 		value.clear();
 		do
