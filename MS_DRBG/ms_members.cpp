@@ -1,5 +1,6 @@
 #include <omp.h>
 #include <sstream>
+#include <algorithm>
 #include "msdrbg.h"
 
 namespace drbg
