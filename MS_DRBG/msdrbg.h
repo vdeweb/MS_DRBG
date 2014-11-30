@@ -1,7 +1,7 @@
-#include "biglong.h"
-
 #ifndef MSDRBG
 #define MSDRBG
+
+#include "biglong.h"
 
 namespace drbg
 {

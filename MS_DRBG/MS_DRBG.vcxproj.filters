@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="biglong.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="sha1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -26,40 +23,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_add.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_compar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_construct.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_div.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_io.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_mult.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_static.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_subtr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl_support.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ms_members.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ms_static.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
